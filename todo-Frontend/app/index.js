@@ -65,7 +65,7 @@ class App extends React.Component {
       })
   }
 
-   apphandleAddNewTodoList (newTodoFromTodoList) {
+  apphandleAddNewTodoList (newTodoFromTodoList) {
 
     apiHandleAddNewTodoList(newTodoFromTodoList)
       .then( createdNewTodo => {
@@ -99,10 +99,10 @@ class App extends React.Component {
       .catch( error => {
         console.log(error);
       })
-   }
+  }
 
-   appHandleDeleteByID (id) {  
-     
+  appHandleDeleteByID (id) {  
+    
       apiHandleDeleteByID(id)
         .then( filteredTodos => {
       
@@ -112,7 +112,7 @@ class App extends React.Component {
               ['all']: filteredTodos
             }
           }), () => {
-           
+          
             let newCompleted = this.state.todoLibrary['all'].filter( item => item.completed === true ? item : '' )
             let newNotCompleted = this.state.todoLibrary['all'].filter( item => item.completed === false ? item : '' )
   
@@ -136,9 +136,9 @@ class App extends React.Component {
         .catch( error => {
           console.log(error)
         })
-   }
+  }
 
-   appHandleCompletedByID (id, bool) {
+  appHandleCompletedByID (id, bool) {
 
     apiHandleCompletedByID(id, bool)
       .then( completedTodo => {
@@ -179,9 +179,9 @@ class App extends React.Component {
         console.log(error)
       })
 
-   }
+  }
 
-   appHandleNewEditTodoByID(id, newTodo) {
+  appHandleNewEditTodoByID(id, newTodo) {
     
     apiHandleNewEditTodoByID(id, newTodo)
       .then( updatedTodo => {
@@ -206,28 +206,27 @@ class App extends React.Component {
       .catch( error => {
         console.log(error);
       })
-   }
+  }
 
-   handleAuthSubmit() {
+  handleAuthSubmit() {
     this.setState({
       isAuth: true
     })
-   }
+  }
 
-   handleLogout() {
+  handleLogout() {
     this.setState({
       isAuth: false
     })
-   }
+  }
 
   
 
-   handleGetTodosByCompletion(completion) {
-     
+  handleGetTodosByCompletion(completion) {
+  
     let completeBool;
   
     this.setState({
-      selected: completion
     })
     
   
@@ -239,7 +238,7 @@ class App extends React.Component {
       completeBool = true
     }
 
-   
+  
     if (!this.state.todoLibrary[completion]) {
 
       apiHandleGetTodosByCompletion(completeBool)
@@ -261,13 +260,13 @@ class App extends React.Component {
 
     
 
-   }
+  }
 
   render() {
 
     return (
 
-       <div className="App">
+      <div className="App">
         <Nav 
           handleAuthSubmit={this.handleAuthSubmit}
           handleLogout={this.handleLogout}

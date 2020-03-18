@@ -55,11 +55,11 @@ module.exports = {
                     } else {
                        
                         const newUser = new User({
-                                                    email: params.email,
-                                                    username: params.username, 
-                                                    password: params.password 
-                                                });
-                                           
+                            email: params.email,
+                            username: params.username, 
+                            password: params.password 
+                        });
+                                
                         bcrypt.genSalt(10, (err, salt) => {
 
                             bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -93,10 +93,10 @@ module.exports = {
 
                                             })
 
-                                           })
-                                           .catch( error => {
-                                               reject(error);
-                                           })
+                                        })
+                                            .catch( error => {
+                                                reject(error);
+                                            })
                                     
                                 }
 
